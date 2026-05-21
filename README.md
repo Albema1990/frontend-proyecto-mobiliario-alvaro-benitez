@@ -1,1 +1,1 @@
-# Frontend Proyecto Mobiliario 
+# Frontend Catálogo Mobiliario 
