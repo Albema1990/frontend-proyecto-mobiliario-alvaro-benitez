@@ -1,5 +1,9 @@
 function Footer (){
-    return (<footer></footer>);
+    return (<footer>
+        <div>
+            <p>Proyecto Final - Bootcamp Neoland Web Development</p>
+        </div>
+    </footer>);
 }
 
 export default Footer;

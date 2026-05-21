@@ -3,8 +3,10 @@ import Navbar from "./Navbar";
 function Header() {
   return (
     <header>
-      <div>Nombre de la marca</div>
-      <Navbar />
+      <div className="header-content container">
+        <div>Hygge Home</div>
+        <Navbar />
+      </div>
     </header>
   );
 }

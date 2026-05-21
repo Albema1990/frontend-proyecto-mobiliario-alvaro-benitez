@@ -1,0 +1,37 @@
+/*reset*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #EFE6DD;
+    color: #1F1F1F;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+.header-content {
+    display: flex; /*para alinear los elementos*/
+    justify-content: space-between; /*para separar los elementos*/
+}
+
+.header-content nav {
+    display : flex; /*para alinear los enlaces*/
+    gap : 10px; /*para separar los enlaces*/
+}
+
+/* h1 {
+    height: 100px;
+    border: 5px solid red;
+    padding: 10px;
+} */
