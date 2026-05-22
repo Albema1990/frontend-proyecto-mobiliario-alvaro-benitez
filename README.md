@@ -13,6 +13,14 @@ Aplicación web para gestionar un catálogo de productos de mobiliario.
 - CSS
 - JavaScript
 
+## Clonar el repositorio
+
+```
+git clone https://github.com/Albema1990/frontend-proyecto-mobiliario-alvaro-benitez.git
+
+git switch dev
+```
+
 ## Como ejecutar el proyecto
 
 ```shell

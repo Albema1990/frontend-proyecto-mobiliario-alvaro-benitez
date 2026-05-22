@@ -1,11 +1,13 @@
 function Navbar(){
-    return (<nav>
+    return (
+    <nav className="navBar">
         <a href="#">Inicio</a>
-        <a href="#">Novedades</a>
-        <a href="#">Productos</a>
-        <a href="">Profesionales</a>
+        <a href="#">Café</a>
+        <a href="#">Tienda</a>
+        <a href="">Contacto</a>
         <a href="#">Admin</a>
-    </nav>);
+    </nav>
+    );
 }
 
-export default Navbar;
+export default Navbar; 
