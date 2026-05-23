@@ -1,5 +1,9 @@
-function Navbar(){
+function Navbar({menuOpen}){
+
+    if(!menuOpen) return null;
+    
     return (
+        
     <nav className="navBar">
         <a href="#">Inicio</a>
         <a href="#">Café</a>
@@ -7,7 +11,6 @@ function Navbar(){
         <a href="">Contacto</a>
         <a href="#">Admin</a>
     </nav>
-    );
-}
+)}
 
 export default Navbar; 
