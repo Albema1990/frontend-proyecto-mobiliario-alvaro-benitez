@@ -3,9 +3,6 @@ function TopBar() {
     <div className="topbar">
       <div className="topbar-content container">
 
-        <a href="#">Buscar una tienda</a>
-        <span>|</span>
-
         <a href="#">Ayuda</a>
         <span>|</span>
 

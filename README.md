@@ -1,10 +1,10 @@
-# Frontend Catálogo Mobiliario 
+# Frontend Catálogo Café
 
 Proyecto final del Bootcamp Neoland Web Development.
 
 ## Descripción
 
-Aplicación web para gestionar un catálogo de productos de mobiliario.
+Aplicación web para gestionar un catálogo de productos de café.
 
 ## Tecnologías
 
