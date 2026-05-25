@@ -26,7 +26,6 @@ function Footer() {
 
           <a href="#">Café</a>
           <a href="#">Accesorios</a>
-          <a href="#">Merch</a>
 
         </div>
 
