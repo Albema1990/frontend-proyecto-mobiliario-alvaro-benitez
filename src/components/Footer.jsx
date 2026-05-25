@@ -1,37 +1,52 @@
-<div className="footer-main container">
+import FooterTop from "./FooterTop";
 
-  <div className="footer-brand">
+function Footer() {
 
-    <h3>HYGGE</h3>
+  return (
+    <footer className="site-footer">
 
-    <p>
-      Café de especialidad para
-      disfrutar momentos tranquilos.
-    </p>
+      <FooterTop />
 
-  </div>
+      <div className="footer-main container">
 
-  <div className="footer-links">
+        <div className="footer-column">
 
-    <div className="footer-column">
+          <h3>HYGGE</h3>
 
-      <h4>Tienda</h4>
+          <p>
+            Café de especialidad para
+            disfrutar momentos tranquilos.
+          </p>
 
-      <a href="#">Café</a>
-      <a href="#">Accesorios</a>
-      <a href="#">Merch</a>
+        </div>
 
-    </div>
+        <div className="footer-column">
 
-    <div className="footer-column">
+          <h4>Tienda</h4>
 
-      <h4>Empresa</h4>
+          <a href="#">Café</a>
+          <a href="#">Accesorios</a>
+          <a href="#">Merch</a>
 
-      <a href="#">Sobre nosotros</a>
-      <a href="#">Contacto</a>
+        </div>
 
-    </div>
+        <div className="footer-column">
 
-  </div>
+          <h4>Empresa</h4>
 
-</div>
+          <a href="#">Sobre nosotros</a>
+          <a href="#">Contacto</a>
+
+        </div>
+
+      </div>
+
+      <p className="footer-bottom">
+        &copy; 2024 HYGGE. Todos los derechos reservados.
+      </p>
+
+    </footer>
+  );
+}
+
+export default Footer;
