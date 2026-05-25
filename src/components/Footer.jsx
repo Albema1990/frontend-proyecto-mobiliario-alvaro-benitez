@@ -1,46 +1,37 @@
-import FooterTop from "./FooterTop";
+<div className="footer-main container">
 
-function Footer() {
-  return (
-    <footer className="site-footer">
-      <FooterTop />
+  <div className="footer-brand">
 
-      <div className="footer-main container">
-        <div className="footer-column">
-          <h3>Hygge Home Coffee</h3>
-          <p>Café de especialidad para disfrutar en casa.</p>
-        </div>
+    <h3>HYGGE</h3>
 
-        <div className="footer-column">
-          <h4>Empresa</h4>
+    <p>
+      Café de especialidad para
+      disfrutar momentos tranquilos.
+    </p>
 
-          <a href="#">Nosotros</a>
-          <a href="#">Tienda</a>
-          <a href="#">Blog</a>
-        </div>
+  </div>
 
-        <div className="footer-column">
-          <h4>Ayuda</h4>
+  <div className="footer-links">
 
-          <a href="#">Contacto</a>
-          <a href="#">Envíos</a>
-          <a href="#">FAQ</a>
-        </div>
+    <div className="footer-column">
 
-        <div className="footer-column">
-          <h4>Redes</h4>
+      <h4>Tienda</h4>
 
-          <a href="#">Instagram</a>
-          <a href="#">TikTok</a>
-          <a href="#">YouTube</a>
-        </div>
-      </div>
+      <a href="#">Café</a>
+      <a href="#">Accesorios</a>
+      <a href="#">Merch</a>
 
-      <div className="footer-bottom">
-        <p>© 2025 Hygge Home Coffee</p>
-      </div>
-    </footer>
-  );
-}
+    </div>
 
-export default Footer;
+    <div className="footer-column">
+
+      <h4>Empresa</h4>
+
+      <a href="#">Sobre nosotros</a>
+      <a href="#">Contacto</a>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,36 +1,39 @@
-import Navbar from "./Navbar";
 import { useState } from "react";
+import Navbar from "./Navbar";
 
 function Header() {
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="site-header">
+
       <div className="header-content container">
-        
-        {/* logo */}
-        <div className="logo">Hygge Home Coffee</div>
 
+        <div className="logo">
+          HYGGE
+        </div>
 
-        {/* Acciones */}
         <div className="header-actions">
 
-          <div className="search-box">
-            <input type="text" placeholder="Buscar..." />
-          </div>
-
-          <button className="icon-btn" onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? "✖" : "☰"}
+          <button
+            className="icon-btn mobile-menu-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? "✕" : "☰"}
           </button>
-          <button className="icon-btn">🛒</button>
-          <button className="icon-btn">👤</button>
+
+          <button className="icon-btn">
+            🛒
+          </button>
+
         </div>
+
       </div>
 
       <Navbar menuOpen={menuOpen} />
 
     </header>
-
   );
 }
 
