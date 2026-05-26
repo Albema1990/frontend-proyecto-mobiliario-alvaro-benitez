@@ -4,9 +4,10 @@ function Navbar({ menuOpen }) {
     <nav className={`navbar ${menuOpen ? "active" : ""}`}>
 
       <a href="#">Inicio</a>
-      <a href="#">Café</a>
       <a href="#">Tienda</a>
+      <a href="#">Nosotros</a>
       <a href="#">Contacto</a>
+      <a href="#">Admin</a>
 
     </nav>
   );
