@@ -1,3 +1,4 @@
+import BestSellers from "../components/BestSellers";
 function Home() {
   return (
     <main>
@@ -32,6 +33,8 @@ function Home() {
         </div>
       </section>
 
+      <BestSellers />
+      
       <section className="featured">
         <div className="featured-content container">
           <div className="featured-card">
