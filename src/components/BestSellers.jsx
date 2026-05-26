@@ -18,7 +18,9 @@ function BestSellers() {
 
         <div className="products-grid">
 
-          {products.map((product) => (
+          {products
+            .filter(product => product.bestSeller)
+            .map((product) => (
 
             <article
               key={product.id}
