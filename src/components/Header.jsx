@@ -25,8 +25,6 @@ function Header() {
               type="text"
               name="search"
               id="search"
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
               placeholder="Buscar..."
             />
 
