@@ -4,12 +4,12 @@ import Navbar from "./Navbar";
 import {
   HiOutlineShoppingBag,
   HiOutlineMenu,
-  HiOutlineX
+  HiOutlineX,
 } from "react-icons/hi";
 
-
 function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); 
+
 
   return (
     <header className="site-header">
@@ -20,26 +20,30 @@ function Header() {
 
         <div className="header-actions">
           <div className="search-box">
-            <input type="text" placeholder="Buscar..." />
+            <input
+              className="search-input"
+              type="text"
+              name="search"
+              id="search"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Buscar..."
+            />
+
           </div>
 
-          <button className="icon-btn"><HiOutlineShoppingBag /></button>
+          <button className="icon-btn">
+            <HiOutlineShoppingBag />
+          </button>
 
           <button
             className="icon-btn mobile-menu-btn"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuOpen
-              ? <HiOutlineX />
-              : <HiOutlineMenu />
-            }
+            {menuOpen ? <HiOutlineX /> : <HiOutlineMenu />}
           </button>
-
-          
         </div>
       </div>
-
-      
     </header>
   );
 }

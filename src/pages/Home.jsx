@@ -2,6 +2,7 @@ import BestSellers from "../components/BestSellers";
 import SaleProducts from "../components/SaleProducts";
 
 function Home() {
+
   return (
     <main>
       <section className="hero">
