@@ -1,22 +1,26 @@
 import "./App.css";
-import { useState } from "react";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Shop from "./pages/Shop";
 
 function App() {
 
-  const [search, setSearch] = useState("");
-
   return (
-    <>
+    <BrowserRouter>
       <TopBar />
-      <Header search={search} setSearch={setSearch} />
-      <Home search={search} />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop/:category" element={<Shop />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 import {
@@ -8,8 +9,17 @@ import {
 } from "react-icons/hi";
 
 function Header() {
-  const [menuOpen, setMenuOpen] = useState(false); 
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const [search, setSearch] = useState("");
 
+  const handleSearch = (e) => {
+    if (e.key === "Enter") {
+      const value = search.trim().toLowerCase();
+
+      navigate(`/shop/${value}`);
+    }
+  };
 
   return (
     <header className="site-header">
@@ -26,8 +36,10 @@ function Header() {
               name="search"
               id="search"
               placeholder="Buscar..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyDown={handleSearch}
             />
-
           </div>
 
           <button className="icon-btn">
