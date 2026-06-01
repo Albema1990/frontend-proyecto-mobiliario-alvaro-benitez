@@ -18,6 +18,8 @@ function Header() {
       const value = search.trim().toLowerCase();
 
       navigate(`/shop/${value}`);
+
+        setSearch("");
     }
   };
 
