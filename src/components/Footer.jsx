@@ -14,8 +14,7 @@ function Footer() {
           <h3>HYGGE</h3>
 
           <p>
-            Café de especialidad para
-            disfrutar momentos tranquilos.
+            Para amantes del café
           </p>
 
         </div>
@@ -25,6 +24,7 @@ function Footer() {
           <h4>Tienda</h4>
 
           <a href="#">Café</a>
+          <a href="#">Té</a>
           <a href="#">Accesorios</a>
 
         </div>
@@ -35,6 +35,7 @@ function Footer() {
 
           <a href="#">Sobre nosotros</a>
           <a href="#">Contacto</a>
+          <a href="#">Únete a nosotros</a>
 
         </div>
 

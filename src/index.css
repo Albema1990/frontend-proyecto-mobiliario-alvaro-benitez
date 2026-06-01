@@ -416,9 +416,13 @@ body {
   grid-template-columns: 1fr;
 
   gap: 2rem;
+
+  margin-top: 3rem;
 }
 
 .product-card {
+
+  cursor: pointer;
 
   background-color: rgba(255, 255, 255, 0.05);
 
@@ -488,9 +492,9 @@ body {
   transition: 0.2s ease;
 }
 
-.buy-btn:hover {
+/* .buy-btn:hover {
   background-color: #000000;
-}
+} */
 
 /* =========================
    SALE PRODUCTS
@@ -633,6 +637,47 @@ body {
 }
 
 /* =========================
+   PRODUCT DETAIL 
+========================= */
+.product-detail {
+  padding: 4rem 0;
+}
+
+.product-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.product-detail-image img {
+  width: 100%;
+  border-radius: 24px;
+}
+
+.product-detail-info h1 {
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.product-description {
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.product-meta {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  margin-bottom: 2rem;
+}
+
+/* =========================
    FOOTER
 ========================= */
 
@@ -763,6 +808,29 @@ body {
   color: #bdbdbd;
 }
 
+.shop-header {
+  margin: 3rem 0;
+}
+
+.shop-subtitle {
+  font-size: 0.75rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 4px;
+
+  color: #888;
+
+  margin-bottom: 0.75rem;
+}
+
+.shop-header h1 {
+  font-size: 3rem;
+
+  max-width: 600px;
+
+  font-weight: 700;
+}
 /* =========================
    MEDIA QUERIES
 
@@ -859,6 +927,13 @@ body {
   .product-info {
     padding: 2rem;
 }
+
+.product-detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
 
 /* =========================
    LAPTOP / DESKTOP
@@ -1035,5 +1110,7 @@ body {
 
     padding: 1rem;
   }
+
 }
+
 }
