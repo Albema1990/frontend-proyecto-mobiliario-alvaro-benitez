@@ -24,7 +24,11 @@ function Shop() {
 
         <div className="products-grid">
           {filteredProducts.map((product) => (
-            <div key={product.id} className="product-card" onClick={() => navigate(`/product/${product.id}`)}>
+            <div
+              key={product.id}
+              className="product-card"
+              onClick={() => navigate(`/product/${product.id}`)}
+            >
               <div className="product-image">
                 <img src={product.image} alt={product.name} />
               </div>
@@ -34,11 +38,7 @@ function Shop() {
 
                 <p>{product.price}€</p>
 
-                <button
-                  className="buy-btn"
-                >
-                  Ver detalles
-                </button>
+                <button className="buy-btn">Ver detalles</button>
               </div>
             </div>
           ))}

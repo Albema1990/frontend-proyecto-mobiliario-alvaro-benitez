@@ -1,22 +1,20 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import products from "../data/products";
-import { useNavigate } from "react-router-dom";
 
 function ProductDetail() {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const product = products.find((product) => product.id === Number(id));
+
+  if (!product) {
+    return <h1>Producto no encontrado</h1>;
+  }
 
   const relatedProducts = products
     .filter(
       (item) => item.category === product.category && item.id !== product.id,
     )
     .slice(0, 3);
-
-  if (!product) {
-    return <h1>Producto no encontrado</h1>;
-  }
 
   return (
     <main className="product-detail">
@@ -57,10 +55,10 @@ function ProductDetail() {
 
         <div className="related-scroll">
           {relatedProducts.map((product) => (
-            <div
+            <Link
               key={product.id}
+              to={`/product/${product.id}`}
               className="product-card"
-              onClick={() => navigate(`/product/${product.id}`)}
             >
               <div className="product-image">
                 <img src={product.image} alt={product.name} />
@@ -71,11 +69,10 @@ function ProductDetail() {
 
                 <p>{product.price}€</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
-
     </main>
   );
 }
