@@ -1,6 +1,9 @@
 import products from "../data/products";
+import { useNavigate } from "react-router-dom";
 
 function SaleProducts() {
+
+  const navigate = useNavigate();
 
   const saleProducts = products.filter(
     product => product.onSale
@@ -58,7 +61,7 @@ function SaleProducts() {
 
                 </div>
 
-                <button className="buy-btn">
+                <button className="buy-btn" onClick={() => navigate(`/product/${product.id}`)}>
                   Comprar
                 </button>
 

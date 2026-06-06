@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
+
 function Navbar({ menuOpen }) {
 
   return (
     <nav className={`navbar ${menuOpen ? "active" : ""}`}>
 
-      <a href="#">Inicio</a>
-      <a href="#">Tienda</a>
-      <a href="#">Nosotros</a>
-      <a href="#">Contacto</a>
-      <a href="#">Admin</a>
+      <Link to="/">Inicio</Link>
+      <Link to="/shop">Tienda</Link>
+      <Link to="/about">Nosotros</Link>
+      <Link to="/contact">Contacto</Link>
+      <Link to="/admin">Admin</Link>
 
     </nav>
   );

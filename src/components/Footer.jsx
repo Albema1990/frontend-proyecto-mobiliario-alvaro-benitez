@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import FooterTop from "./FooterTop";
 
 function Footer() {
@@ -23,9 +24,9 @@ function Footer() {
 
           <h4>Tienda</h4>
 
-          <a href="#">Café</a>
-          <a href="#">Té</a>
-          <a href="#">Accesorios</a>
+          <Link to="/shop/cafe">Café</Link>
+          <Link to="/shop/te">Té</Link>
+          <Link to="/shop/accesorios">Accesorios</Link>
 
         </div>
 
@@ -33,9 +34,9 @@ function Footer() {
 
           <h4>Empresa</h4>
 
-          <a href="#">Sobre nosotros</a>
-          <a href="#">Contacto</a>
-          <a href="#">Únete a nosotros</a>
+          <Link to="/about">Sobre nosotros</Link>
+          <Link to="/contact">Contacto</Link>
+          <Link to="/careers">Únete a nosotros</Link>
 
         </div>
 

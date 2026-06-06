@@ -1,5 +1,6 @@
 import BestSellers from "../components/BestSellers";
 import SaleProducts from "../components/SaleProducts";
+import { Link } from "react-router-dom";
 
 function Home() {
 
@@ -17,13 +18,13 @@ function Home() {
             </p>
 
             <div className="hero-buttons">
-              <a href="#" className="primary-btn">
-                Comprar café
-              </a>
+              <Link to="/shop" className="primary-btn">
+                Comprar
+              </Link>
 
-              <a href="#" className="secondary-btn">
-                Explorar
-              </a>
+              <Link to="/about" className="secondary-btn">
+                Conócenos
+              </Link>
             </div>
           </div>
 
