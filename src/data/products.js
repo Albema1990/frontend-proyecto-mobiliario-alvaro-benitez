@@ -3,7 +3,7 @@ const products = [
   {
     id: 1,
     name: "Etiopia",
-    category: "cafe",
+    category: "Café",
     price: 16.95,
     oldPrice: 20.95,
     description: "Café de especialidad con notas florales y cítricas",
@@ -18,7 +18,7 @@ const products = [
   {
     id: 2,
     name: "Colombia",
-    category: "cafe",
+    category: "Café",
     price: 14.95,
     oldPrice: 23.95,
     description: "Café de especialidad con notas cítricas y tostadas",
@@ -33,7 +33,7 @@ const products = [
   {
     id: 3,
     name: "Kenya",
-    category: "cafe",
+    category: "Café",
     price: 18.95,
     oldPrice: 18.95,
     description: "Café de especialidad con notas afrutadas y tostadas",
@@ -48,7 +48,7 @@ const products = [
   {
     id: 4,
     name: "Guatemala",
-    category: "cafe",
+    category: "Café",
     price: 15.95,
     oldPrice: 21.95,
     description: "Café de especialidad con notas cítricas y tostadas",
@@ -63,7 +63,7 @@ const products = [
   {
     id: 5,
     name: "Brasil",
-    category: "cafe",
+    category: "Café",
     price: 12.95,
     oldPrice: 20.95,
     description: "Café de especialidad con notas de chocolate y nueces",
@@ -78,7 +78,7 @@ const products = [
   {
     id: 6,
     name: "Te rojo",
-    category: "te",
+    category: "Té",
     price: 10.95,
     oldPrice: 12.95,
     description: "Té rojo de calidad superior",
@@ -93,7 +93,7 @@ const products = [
   {
     id: 7,
     name: "Te negro",
-    category: "te",
+    category: "Té",
     price: 6.95,
     oldPrice: 7.95,
     description: "Té negro de aroma intenso",
@@ -108,7 +108,7 @@ const products = [
   {
     id: 8,
     name: "Te verde",
-    category: "te",
+    category: "Té",
     price: 12.95,
     oldPrice: 12.95,
     description: "Té verde con notas florales",
@@ -123,7 +123,7 @@ const products = [
   {
     id: 9,
     name: "Molinillo de café",
-    category: "accesorios",
+    category: "Accesorios",
     price: 30.95,
     oldPrice: 35.95,
     description: "Molinillo de café calidad premium",
@@ -138,7 +138,7 @@ const products = [
   {
     id: 10,
     name: "Kit accesorios para espresso",
-    category: "accesorios",
+    category: "Accesorios",
     price: 32.95,
     oldPrice: 40.95,
     description: "Kit de accesorios para preparar espresso",
@@ -153,7 +153,7 @@ const products = [
   {
     id: 11,
     name: "Tapete bandeja",
-    category: "accesorios",
+    category: "Accesorios",
     price: 10.95,
     oldPrice: 10.95,
     description: "Tapete para bandeja de café",

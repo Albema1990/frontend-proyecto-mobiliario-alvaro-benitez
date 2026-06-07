@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import Shop from "../pages/Shop";
 import ProductDetail from "../pages/ProductDetail";
+import NotFoundPage from "../pages/NotFoundPage";
 
 
 export const router = createBrowserRouter([
@@ -29,6 +30,11 @@ export const router = createBrowserRouter([
             {
                 path: "/product/:id",
                 element: <ProductDetail />
+            },
+
+            {
+                path: "*",
+                element: <NotFoundPage />
             }
         ]
     }
