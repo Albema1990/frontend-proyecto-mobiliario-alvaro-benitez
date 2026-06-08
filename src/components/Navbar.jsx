@@ -9,7 +9,7 @@ function Navbar({ menuOpen }) {
       <Link to="/shop">Tienda</Link>
       <Link to="/about">Nosotros</Link>
       <Link to="/contact">Contacto</Link>
-      <Link to="/admin">Admin</Link>
+      <Link to="/admin/shop">Admin</Link>
 
     </nav>
   );

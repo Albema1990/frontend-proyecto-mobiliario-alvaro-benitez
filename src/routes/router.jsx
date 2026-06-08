@@ -6,6 +6,9 @@ import Shop from "../pages/Shop";
 import ProductDetail from "../pages/ProductDetail";
 import NotFoundPage from "../pages/NotFoundPage";
 
+import AdminLayout from "../layouts/AdminLayout";
+import AdminProductsPage from "../pages/admin/AdminProductsPage";
+
 
 export const router = createBrowserRouter([
     {
@@ -37,5 +40,15 @@ export const router = createBrowserRouter([
                 element: <NotFoundPage />
             }
         ]
-    }
-])
+    },
+    {
+        path: "/admin",
+        element: <AdminLayout />,
+        children: [
+            {
+                path: "/shop",
+                element: <AdminProductsPage />,
+            }
+        ],
+    },
+]);
