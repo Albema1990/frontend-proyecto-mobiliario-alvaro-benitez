@@ -18,7 +18,6 @@ function AdminLayout() {
                 </div>
 
                 <nav className="admin-nav">
-                    <Link to="/admin/shop">Tienda</Link>
                     <Link to="/shop">Ver sitio público</Link>
                 </nav>                
 
