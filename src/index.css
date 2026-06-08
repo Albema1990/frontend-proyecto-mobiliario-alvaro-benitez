@@ -880,6 +880,79 @@ body {
   object-fit: cover;
 }
 
+/* Admin styles */
+
+.admin-page {
+  padding: 40px;
+}
+
+.admin-header {
+  margin-bottom: 24px;
+
+}
+
+.admin-header h1 {
+  margin: 0 0 8px;
+}
+
+.admin-header p {
+  margin: 0;
+  color: #666;
+}
+
+.admin-nav {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.admin-nav a {
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: white;
+  background-color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.admin-nav a:hover {
+  background-color: #555;
+}
+
+.btn {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.admin-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.admin-section-header h2 {
+  margin: 0 0 8px;
+}
+
+.admin-section-header p{
+  margin: 0;
+  color: #666;
+}
+
+.admin-list {
+  list-style: none;
+  padding: 24px;
+  margin: 0;
+}
+
+
 /* =========================
    MEDIA QUERIES
 

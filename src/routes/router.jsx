@@ -10,6 +10,7 @@ import AdminLayout from "../layouts/AdminLayout";
 import AdminProductsPage from "../pages/admin/AdminProductsPage";
 
 
+
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -46,9 +47,9 @@ export const router = createBrowserRouter([
         element: <AdminLayout />,
         children: [
             {
-                path: "/shop",
+                path: "shop",
                 element: <AdminProductsPage />,
-            }
+            },
         ],
     },
 ]);

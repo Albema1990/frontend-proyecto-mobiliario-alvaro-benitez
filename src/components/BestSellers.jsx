@@ -15,7 +15,7 @@ function BestSellers() {
 
           <p>BEST SELLERS</p>
 
-          <h2>Nuestros cafés más vendidos</h2>
+          <h2>Nuestros productos más vendidos</h2>
 
         </div>
 
