@@ -1,3 +1,11 @@
+import coffeImage from "../assets/products/cafe.png";
+import teaimage from "../assets/products/teRojo.png";
+import teaImage2 from "../assets/products/teNegro.png";
+import teaImage3 from "../assets/products/teVerde.png";
+import molinilloImage from "../assets/products/molinillo.png";
+import kitImage from "../assets/products/kit.png";
+import tapeteImage from "../assets/products/tapete.png";
+
 const products = [
 
   {
@@ -10,7 +18,7 @@ const products = [
     origin: "Etiopía, África",
     roast: "Medio",
     weight: "250g",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: coffeImage,
     bestSeller: true,
     onSale: true
   },
@@ -25,7 +33,7 @@ const products = [
     origin: "Colombia, América",
     roast: "Medio",
     weight: "300g",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: coffeImage,
     bestSeller: false,
     onSale: true
   },
@@ -40,7 +48,7 @@ const products = [
     origin: "Kenya, África",
     roast: "Medio",
     weight: "250g",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: coffeImage,
     bestSeller: true,
     onSale: false
   },
@@ -55,7 +63,7 @@ const products = [
     origin: "Guatemala, América",
     roast: "Medio",
     weight: "500g",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: coffeImage,
     bestSeller: false,
     onSale: true
   },
@@ -70,7 +78,7 @@ const products = [
     origin: "Brasil, América",
     roast: "Medio",
     weight: "250g",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: coffeImage,
     bestSeller: true,
     onSale: true
   },
@@ -85,7 +93,7 @@ const products = [
     origin: "China, Asia",
     roast: "Medio",
     weight: "250g",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: teaimage,
     bestSeller: true,
     onSale: true
   },
@@ -100,7 +108,7 @@ const products = [
     origin: "China, Asia",
     roast: "Medio",
     weight: "250g",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: teaImage2,
     bestSeller: true,
     onSale: true
   },
@@ -115,7 +123,7 @@ const products = [
     origin: "China, Asia",
     roast: "Medio",
     weight: "350g",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: teaImage3,
     bestSeller: false,
     onSale: false
   },
@@ -130,7 +138,7 @@ const products = [
     origin: "Hamburg, Alemania",
     roast: "",
     weight: "",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: molinilloImage,
     bestSeller: false,
     onSale: true
   },
@@ -145,7 +153,7 @@ const products = [
     origin: "Hamburg, Alemania",
     roast: "",
     weight: "",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: kitImage,
     bestSeller: true,
     onSale: true
   },
@@ -160,7 +168,7 @@ const products = [
     origin: "Hamburg, Alemania",
     roast: "",
     weight: "",
-    image: "https://picsum.photos/seed/picsum/200/300",
+    image: tapeteImage,
     bestSeller: true,
     onSale: false
   }
