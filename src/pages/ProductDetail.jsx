@@ -14,7 +14,7 @@ function ProductDetail() {
     .filter(
       (item) => item.category === product.category && item.id !== product.id,
     )
-    .slice(0, 3);
+    .slice(0, 6);
 
   return (
     <main className="product-detail">
