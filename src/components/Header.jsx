@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
+import products from "../data/products";
 
 import {
   HiOutlineShoppingBag,
@@ -19,9 +20,13 @@ function Header() {
 
       navigate(`/shop/${value}`);
 
-        setSearch("");
+      setSearch("");
     }
   };
+
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(search.toLowerCase()),
+  );
 
   return (
     <header className="site-header">
@@ -42,6 +47,25 @@ function Header() {
               onChange={(e) => setSearch(e.target.value)}
               onKeyDown={handleSearch}
             />
+
+            {search.length > 0 && (
+              <div className="search-results">
+                {filteredProducts.map((product) => (
+                  <div
+                    key={product.id}
+                    className="search-result"
+                    onClick={() => {
+                      navigate(`/product/${product.id}`);
+                      setSearch("");
+                    }}
+                  >
+                    <img src={product.image} alt={product.name} />
+
+                    <span>{product.name}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <button className="icon-btn">

@@ -134,9 +134,7 @@ body {
 }
 
 .search-box {
-  display: flex;
-
-  align-items: center;
+  position: relative;
 }
 
 .search-box input {
@@ -165,6 +163,54 @@ body {
   color: var(--paragraph);
 }
 
+.search-results {
+  position: absolute;
+
+  top: calc(100% + 8px);
+  left: 0;
+
+  width: 300px;
+
+  background-color: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  z-index: 9999;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.search-result {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  padding: 0.75rem 1rem;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.search-result:hover {
+  background-color: rgba(255,255,255,0.05);
+}
+
+.search-result img {
+  width: 40px;
+
+  height: 40px;
+
+  border-radius: 8px;
+
+  object-fit: cover;
+}
 
 
 /* Buttons */
