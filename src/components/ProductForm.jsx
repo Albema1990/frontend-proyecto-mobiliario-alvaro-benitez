@@ -12,6 +12,10 @@ function ProductForm({ onCreateProduct }) {
   const [form, setForm] = useState(initialForm);
 
   const handleChange = (event) => {
+    event.preventDefault();
+
+    // console.log("SUBMIT", form);
+
     const { name, value, type, checked } = event.target;
 
     setForm({

@@ -1,4 +1,4 @@
-import { products as initialProducts} from "../../data/Products";
+import initialProducts from "../../data/Products";
 
 import { useState } from "react";
 import ProductForm from "../../components/ProductForm";
@@ -8,12 +8,16 @@ function AdminProductsPage() {
   const [products, setProducts] = useState(initialProducts);
 
   const handleCreateProduct = (productData) => {
+
+    console.log("PRODUCTO RECIBIDO", productData);
     const newProduct = {
       ...productData,
       id: Date.now(),
     };
 
     setProducts([...products, newProduct]);
+
+    setShowForm(false);
   };
 
   return (
