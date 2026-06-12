@@ -1,14 +1,21 @@
 import initialProducts from "../../data/Products";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductForm from "../../components/ProductForm";
 
 function AdminProductsPage() {
   const [showForm, setShowForm] = useState(false);
-  const [products, setProducts] = useState(initialProducts);
+  const [products, setProducts] = useState(() => {
+    const savedProducts = localStorage.getItem("products");
+
+    return savedProducts ? JSON.parse(savedProducts) : initialProducts;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [products]);
 
   const handleCreateProduct = (productData) => {
-
     console.log("PRODUCTO RECIBIDO", productData);
     const newProduct = {
       ...productData,
