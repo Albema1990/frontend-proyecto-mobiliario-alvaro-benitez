@@ -11,6 +11,8 @@ function AdminProductsPage() {
     return savedProducts ? JSON.parse(savedProducts) : initialProducts;
   });
 
+  const [editingProduct, setEditingProduct] = useState(null);
+
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));
   }, [products]);
@@ -26,6 +28,31 @@ function AdminProductsPage() {
 
     setShowForm(false);
   };
+
+  const handleDeleteProduct = (id) => {
+    const confirmed = window.confirm("Deseas eliminar este producto?");
+
+    if (!confirmed) return;
+
+    setProducts(products.filter((product) => product.id !== id));
+    console.log("PRODUCTO ELIMINADO", id);
+  };
+
+  const handleEditProduct = (product) => {
+    setEditingProduct(product);
+    setShowForm(true);
+  };
+
+  // const handleUpdateProduct = (updatedProduct) => {
+  //   setProducts(
+  //     products.map((product) =>
+  //       product.id === updatedProduct.id ? updatedProduct : product,
+  //     ),
+  //   );
+
+  //   setEditingProduct(null);
+  //   setShowForm(false);
+  // };
 
   return (
     <section className="admin-section">
@@ -44,15 +71,38 @@ function AdminProductsPage() {
         </button>
       </div>
 
-      {showForm && <ProductForm onCreateProduct={handleCreateProduct} />}
+      {showForm && (
+        <ProductForm
+          key={editingProduct?.id || "new"}
+          product={editingProduct}
+          onCreateProduct={handleCreateProduct}
+        />
+      )}
 
       <div className="admin-list">
         {products.map((product) => (
-          <article key={product.id}>
+          <article key={product.id} className="admin-list-item">
             <img src={product.image} alt={product.name} />
+
             <div>
               <h3>{product.name}</h3>
               <p>{product.price}</p>
+
+              <div className="admin-actions">
+                <button
+                className="admin-edit-button"
+                onClick={() => handleEditProduct(product)}
+                >
+                  Editar
+                </button>
+
+                <button
+                  className="admin-delete-button"
+                  onClick={() => handleDeleteProduct(product.id)}
+                >
+                  Eliminar
+                </button>
+              </div>
             </div>
           </article>
         ))}

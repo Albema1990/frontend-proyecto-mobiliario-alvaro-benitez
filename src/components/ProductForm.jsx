@@ -5,14 +5,16 @@ const initialForm = {
   description: "",
   category: "",
   price: "",
+  image: "",
   onSale: false,
 };
 
-function ProductForm({ onCreateProduct }) {
-  const [form, setForm] = useState(initialForm);
+function ProductForm({ product, onCreateProduct }) {
+  const [form, setForm] = useState(product || initialForm);
+
 
   const handleChange = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     // console.log("SUBMIT", form);
 
@@ -20,30 +22,43 @@ function ProductForm({ onCreateProduct }) {
 
     setForm({
       ...form,
-      [name]: type == "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+    const imageUrl = URL.createObjectURL(file);
+
+    setForm({
+      ...form,
+      image: imageUrl,
     });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!form.name.trim()){
-        alert("Ingrese el nombre");
-        return;
+    if (!form.name.trim()) {
+      alert("Ingrese el nombre");
+      return;
     }
 
-    if (!form.description.trim()){
-        alert("Ingrese una descripción");
-        return;
+    if (!form.description.trim()) {
+      alert("Ingrese una descripción");
+      return;
     }
 
-    if (!form.category.trim()){
-        alert("Seleccione una categoría");
-        return;
+    if (!form.category.trim()) {
+      alert("Seleccione una categoría");
+      return;
     }
 
-    if (!form.price.trim()){
-        alert("Ingrese un precio");
-        return;
+    if (!form.price.trim()) {
+      alert("Ingrese un precio");
+      return;
     }
 
     //Crear un producto
@@ -96,6 +111,23 @@ function ProductForm({ onCreateProduct }) {
           value={form.price}
           onChange={handleChange}
         />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="image">Imagen</label>
+
+        <input
+          type="file"
+          id="image"
+          accept="image/*"
+          onChange={handleImageChange}
+        />
+
+        {form.image && (
+          <div className="image-preview">
+            <img src={form.image} alt="Vista previa" />
+          </div>
+        )}
       </div>
 
       <div className="form-group">
