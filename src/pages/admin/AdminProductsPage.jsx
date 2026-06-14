@@ -29,6 +29,19 @@ function AdminProductsPage() {
     setShowForm(false);
   };
 
+  const handleUpdateProduct = (updatedProduct) => {
+  setProducts(
+    products.map((product) =>
+      product.id === updatedProduct.id
+        ? updatedProduct
+        : product
+    )
+  );
+
+  setEditingProduct(null);
+  setShowForm(false);
+};
+
   const handleDeleteProduct = (id) => {
     const confirmed = window.confirm("Deseas eliminar este producto?");
 
@@ -65,7 +78,7 @@ function AdminProductsPage() {
         <button
           className="admin-create-button"
           type="button"
-          onClick={() => setShowForm(!showForm)}
+          onClick={() => {setShowForm(!showForm); setEditingProduct(null);}}
         >
           {showForm ? "Cerrar formulario" : "Crear producto"}
         </button>
@@ -76,6 +89,7 @@ function AdminProductsPage() {
           key={editingProduct?.id || "new"}
           product={editingProduct}
           onCreateProduct={handleCreateProduct}
+          onUpdateProduct={handleUpdateProduct}
         />
       )}
 

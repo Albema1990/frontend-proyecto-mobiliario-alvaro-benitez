@@ -9,9 +9,8 @@ const initialForm = {
   onSale: false,
 };
 
-function ProductForm({ product, onCreateProduct }) {
+function ProductForm({ product, onCreateProduct, onUpdateProduct }) {
   const [form, setForm] = useState(product || initialForm);
-
 
   const handleChange = (event) => {
     // event.preventDefault();
@@ -63,14 +62,20 @@ function ProductForm({ product, onCreateProduct }) {
 
     //Crear un producto
 
-    onCreateProduct(form);
+    if (product) {
+      onUpdateProduct(form);
+    } else {
+      onCreateProduct(form);
+    }
 
     setForm(initialForm);
   };
 
   return (
     <form className="product-form" onSubmit={handleSubmit}>
-      <h2>Nuevo Producto</h2>
+      <h2>
+        {product ? "Editar producto" : "Nuevo producto"}
+      </h2>
 
       <div className="form-group">
         <label htmlFor="name">Nombre</label>
@@ -142,7 +147,7 @@ function ProductForm({ product, onCreateProduct }) {
       </div>
 
       <button className="button-newProduct" type="submit">
-        Guardar producto
+        {product ? "Actualizar producto" : "Guardar producto"}
       </button>
 
       <pre>{JSON.stringify(form, null, 2)}</pre>
