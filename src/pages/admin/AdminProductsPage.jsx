@@ -12,6 +12,7 @@ function AdminProductsPage() {
   });
 
   const [editingProduct, setEditingProduct] = useState(null);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));
@@ -27,20 +28,32 @@ function AdminProductsPage() {
     setProducts([...products, newProduct]);
 
     setShowForm(false);
+
+    setMessage("Producto creado correctamente");
   };
 
   const handleUpdateProduct = (updatedProduct) => {
-  setProducts(
-    products.map((product) =>
-      product.id === updatedProduct.id
-        ? updatedProduct
-        : product
-    )
-  );
+    setProducts(
+      products.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product,
+      ),
+    );
 
-  setEditingProduct(null);
-  setShowForm(false);
-};
+    setEditingProduct(null);
+    setShowForm(false);
+
+    setMessage("Producto actualizado correctamente");
+  };
+
+  useEffect(() => {
+    if (!message) {
+      return;
+    }
+
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
+  }, [message]);
 
   const handleDeleteProduct = (id) => {
     const confirmed = window.confirm("Deseas eliminar este producto?");
@@ -48,7 +61,9 @@ function AdminProductsPage() {
     if (!confirmed) return;
 
     setProducts(products.filter((product) => product.id !== id));
-    console.log("PRODUCTO ELIMINADO", id);
+    // console.log("PRODUCTO ELIMINADO", id);
+
+    setMessage("Producto eliminado correctamente");
   };
 
   const handleEditProduct = (product) => {
@@ -69,6 +84,7 @@ function AdminProductsPage() {
 
   return (
     <section className="admin-section">
+      {message && <p className="admin-message">{message}</p>}
       <div className="admin-section-header">
         <div>
           <h2>Administración de productos</h2>
@@ -78,7 +94,10 @@ function AdminProductsPage() {
         <button
           className="admin-create-button"
           type="button"
-          onClick={() => {setShowForm(!showForm); setEditingProduct(null);}}
+          onClick={() => {
+            setShowForm(!showForm);
+            setEditingProduct(null);
+          }}
         >
           {showForm ? "Cerrar formulario" : "Crear producto"}
         </button>
@@ -104,8 +123,8 @@ function AdminProductsPage() {
 
               <div className="admin-actions">
                 <button
-                className="admin-edit-button"
-                onClick={() => handleEditProduct(product)}
+                  className="admin-edit-button"
+                  onClick={() => handleEditProduct(product)}
                 >
                   Editar
                 </button>
