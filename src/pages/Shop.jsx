@@ -54,9 +54,9 @@ function Shop() {
         <div className="products-grid">
           {filteredProducts.map((product) => (
             <div
-              key={product.id}
+              key={product._id}
               className="product-card"
-              onClick={() => navigate(`/product/${product.id}`)}
+              onClick={() => navigate(`/product/${product._id}`)}
             >
               <div className="product-image">
                 <img
