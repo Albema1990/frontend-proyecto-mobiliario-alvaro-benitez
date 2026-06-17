@@ -1,10 +1,10 @@
-import coffeImage from "../assets/products/cafe.png";
-import teaimage from "../assets/products/teRojo.png";
-import teaImage2 from "../assets/products/teNegro.png";
-import teaImage3 from "../assets/products/teVerde.png";
-import molinilloImage from "../assets/products/molinillo.png";
-import kitImage from "../assets/products/kit.png";
-import tapeteImage from "../assets/products/tapete.png";
+// import coffeImage from "../public/images/cafe.png";
+// import teaimage from "../public/images/teRojo.png";
+// import teaImage2 from "../public/images/teNegro.png";
+// import teaImage3 from "../public/images/teVerde.png";
+// import molinilloImage from "../public/images/molinillo.png";
+// import kitImage from "../public/images/kit.png";
+// import tapeteImage from "../public/images/tapete.png";
 
 const products = [
 
@@ -18,7 +18,7 @@ const products = [
     origin: "Etiopía, África",
     roast: "Medio",
     weight: "250g",
-    image: coffeImage,
+    image: "/images/cafe.png",
     bestSeller: true,
     onSale: true
   },
@@ -33,7 +33,7 @@ const products = [
     origin: "Colombia, América",
     roast: "Medio",
     weight: "300g",
-    image: coffeImage,
+    image: "/images/cafe.png",
     bestSeller: false,
     onSale: true
   },
@@ -48,7 +48,7 @@ const products = [
     origin: "Kenya, África",
     roast: "Medio",
     weight: "250g",
-    image: coffeImage,
+    image: "/images/cafe.png",
     bestSeller: true,
     onSale: false
   },
@@ -63,7 +63,7 @@ const products = [
     origin: "Guatemala, América",
     roast: "Medio",
     weight: "500g",
-    image: coffeImage,
+    image: "/images/cafe.png",
     bestSeller: false,
     onSale: true
   },
@@ -78,7 +78,7 @@ const products = [
     origin: "Brasil, América",
     roast: "Medio",
     weight: "250g",
-    image: coffeImage,
+    image: "/images/cafe.png",
     bestSeller: true,
     onSale: true
   },
@@ -93,7 +93,7 @@ const products = [
     origin: "China, Asia",
     roast: "Medio",
     weight: "250g",
-    image: teaimage,
+    image: "/images/teRojo.png",
     bestSeller: true,
     onSale: true
   },
@@ -108,7 +108,7 @@ const products = [
     origin: "China, Asia",
     roast: "Medio",
     weight: "250g",
-    image: teaImage2,
+    image: "/images/teNegro.png",
     bestSeller: true,
     onSale: true
   },
@@ -123,7 +123,7 @@ const products = [
     origin: "China, Asia",
     roast: "Medio",
     weight: "350g",
-    image: teaImage3,
+    image: "/images/teVerde.png",
     bestSeller: false,
     onSale: false
   },
@@ -138,7 +138,7 @@ const products = [
     origin: "Hamburg, Alemania",
     roast: "",
     weight: "",
-    image: molinilloImage,
+    image: "/images/molinillo.png",
     bestSeller: false,
     onSale: true
   },
@@ -153,7 +153,7 @@ const products = [
     origin: "Hamburg, Alemania",
     roast: "",
     weight: "",
-    image: kitImage,
+    image: "/images/kit.png",
     bestSeller: true,
     onSale: true
   },
@@ -168,7 +168,7 @@ const products = [
     origin: "Hamburg, Alemania",
     roast: "",
     weight: "",
-    image: tapeteImage,
+    image: "/images/tapete.png",
     bestSeller: true,
     onSale: false
   }
