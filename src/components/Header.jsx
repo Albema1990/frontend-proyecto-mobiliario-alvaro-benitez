@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
-import products from "../data/products";
+// import products from "../data/products";
+import { getProducts } from "../services/productService";
 
 import {
   HiOutlineShoppingBag,
@@ -13,6 +14,21 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+  const loadProducts = async () => {
+    try {
+      const data = await getProducts();
+      setProducts(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  loadProducts();
+}, []);
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
@@ -52,14 +68,14 @@ function Header() {
               <div className="search-results">
                 {filteredProducts.map((product) => (
                   <div
-                    key={product.id}
+                    key={product._id}
                     className="search-result"
                     onClick={() => {
-                      navigate(`/product/${product.id}`);
+                      navigate(`/product/${product._id}`);
                       setSearch("");
                     }}
                   >
-                    <img src={product.image} alt={product.name} />
+                    <img src={product.image || "images/default.jpg"} alt={product.name} />
 
                     <span>{product.name}</span>
                   </div>
