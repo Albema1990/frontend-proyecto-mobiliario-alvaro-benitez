@@ -1,28 +1,35 @@
-import initialProducts from "../../data/Products";
+// import initialProducts from "../../data/Products";
 
 import { useState, useEffect } from "react";
 import ProductForm from "../../components/ProductForm";
 
+import { getProducts } from "../../services/productService";
+
 function AdminProductsPage() {
   const [showForm, setShowForm] = useState(false);
-  const [products, setProducts] = useState(() => {
-    const savedProducts = localStorage.getItem("products");
-
-    return savedProducts ? JSON.parse(savedProducts) : initialProducts;
-  });
+  const [products, setProducts] = useState([]);
 
   const [editingProduct, setEditingProduct] = useState(null);
   const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    localStorage.setItem("products", JSON.stringify(products));
-  }, [products]);
+useEffect(() => {
+  const loadProducts = async () => {
+    try {
+      const data = await getProducts();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error loading products:", error);
+    }
+  };
+
+  loadProducts();
+}, []);
 
   const handleCreateProduct = (productData) => {
     console.log("PRODUCTO RECIBIDO", productData);
     const newProduct = {
       ...productData,
-      id: Date.now(),
+      _id: Date.now(),
     };
 
     setProducts([...products, newProduct]);
@@ -35,7 +42,7 @@ function AdminProductsPage() {
   const handleUpdateProduct = (updatedProduct) => {
     setProducts(
       products.map((product) =>
-        product.id === updatedProduct.id ? updatedProduct : product,
+        product._id === updatedProduct._id ? updatedProduct : product,
       ),
     );
 
@@ -55,12 +62,12 @@ function AdminProductsPage() {
     }, 3000);
   }, [message]);
 
-  const handleDeleteProduct = (id) => {
+  const handleDeleteProduct = (_id) => {
     const confirmed = window.confirm("Deseas eliminar este producto?");
 
     if (!confirmed) return;
 
-    setProducts(products.filter((product) => product.id !== id));
+    setProducts(products.filter((product) => product._id !== _id));
     // console.log("PRODUCTO ELIMINADO", id);
 
     setMessage("Producto eliminado correctamente");
@@ -105,7 +112,7 @@ function AdminProductsPage() {
 
       {showForm && (
         <ProductForm
-          key={editingProduct?.id || "new"}
+          key={editingProduct?._id || "new"}
           product={editingProduct}
           onCreateProduct={handleCreateProduct}
           onUpdateProduct={handleUpdateProduct}
@@ -114,7 +121,7 @@ function AdminProductsPage() {
 
       <div className="admin-list">
         {products.map((product) => (
-          <article key={product.id} className="admin-list-item">
+          <article key={product._id} className="admin-list-item">
             <img src={product.image} alt={product.name} />
 
             <div>
@@ -131,7 +138,7 @@ function AdminProductsPage() {
 
                 <button
                   className="admin-delete-button"
-                  onClick={() => handleDeleteProduct(product.id)}
+                  onClick={() => handleDeleteProduct(product._id)}
                 >
                   Eliminar
                 </button>
