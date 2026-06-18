@@ -15,20 +15,20 @@ function ProductDetail() {
 
   // const product = products.find((product) => product.id === Number(id));
 
-  useEffect (() => {
+  useEffect(() => {
     const loadProduct = async () => {
-    try {
-      const data = await getProductById(id);
-      setProduct(data);
+      try {
+        const data = await getProductById(id);
+        setProduct(data);
 
-      const all = await getProducts();
-      setAllProducts(all);
-    } catch {
-      setError("Producto no encontrado");
-    } finally {
-      setLoading(false);
-    }
-  };
+        const all = await getProducts();
+        setAllProducts(all);
+      } catch {
+        setError("Producto no encontrado");
+      } finally {
+        setLoading(false);
+      }
+    };
     loadProduct();
   }, [id]);
 
@@ -44,18 +44,25 @@ function ProductDetail() {
     return <h1>Producto no encontrado</h1>;
   }
 
-  const relatedProducts = Array.isArray(allProducts)? allProducts
-    .filter(
-      (item) => item.category === product.category && item.id !== product.id
-    )
-    .slice(0, 6) : [];
+  const relatedProducts = Array.isArray(allProducts)
+    ? allProducts
+        .filter(
+          (item) =>
+            item.category === product.category &&
+            item._id !== product._id,
+        )
+        .slice(0, 6)
+    : [];
 
   return (
     <main className="product-detail">
       <div className="container">
         <div className="product-detail-content">
           <div className="product-detail-image">
-            <img src={product.image || "/images/default.jpg"} alt={product.name} />
+            <img
+              src={product.image || "/images/default.jpg"}
+              alt={product.name}
+            />
           </div>
 
           <div className="product-detail-info">
@@ -90,8 +97,8 @@ function ProductDetail() {
         <div className="related-scroll">
           {relatedProducts.map((product) => (
             <Link
-              key={product.id}
-              to={`/product/${product.id}`}
+              key={product._id}
+              to={`/product/${product._id}`}
               className="product-card"
             >
               <div className="product-image">
