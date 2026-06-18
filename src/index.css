@@ -922,6 +922,32 @@ body {
   object-fit: cover;
 }
 
+.sale-controls {
+  display: none;
+}
+
+.scroll-btn {
+  width: 45px;
+  height: 45px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background-color: white;
+
+  cursor: pointer;
+
+  font-size: 1.2rem;
+
+  transition: all 0.2s ease;
+}
+
+.scroll-btn:hover {
+  background-color: #111;
+  color: white;
+}
+
 /* Admin styles */
 
 .admin-page {
@@ -1443,6 +1469,16 @@ body {
 
   .related-scroll::-webkit-scrollbar {
     display: none;
+  }
+
+    .sale-controls {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 1rem;
+
+    margin-bottom: 1.5rem;
   }
 
   .admin-list {
