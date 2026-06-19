@@ -55,7 +55,7 @@ function ProductForm({ product, onCreateProduct, onUpdateProduct }) {
       return;
     }
 
-    if (!form.price.trim()) {
+    if (Number(form.price) <=0) {
       alert("Ingrese un precio");
       return;
     }
@@ -63,6 +63,7 @@ function ProductForm({ product, onCreateProduct, onUpdateProduct }) {
     //Crear un producto
 
     if (product) {
+      console.log("ACTUALIZAR", form);
       onUpdateProduct(form);
     } else {
       onCreateProduct(form);
@@ -102,9 +103,9 @@ function ProductForm({ product, onCreateProduct, onUpdateProduct }) {
       <select name="category" value={form.category} onChange={handleChange}>
         <option value="">Selecciona una categoría</option>
 
-        <option value="cafe">Café</option>
-        <option value="te">Té</option>
-        <option value="accesorios">Accesorios</option>
+        <option value="Café">Café</option>
+        <option value="Té">Té</option>
+        <option value="Accesorios">Accesorios</option>
       </select>
 
       <div className="form-group">

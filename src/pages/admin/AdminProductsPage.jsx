@@ -3,7 +3,12 @@
 import { useState, useEffect } from "react";
 import ProductForm from "../../components/ProductForm";
 
-import { getProducts } from "../../services/productService";
+import {
+  getProducts,
+  updateProduct,
+  deleteProduct,
+  createProduct,
+} from "../../services/productService";
 
 function AdminProductsPage() {
   const [showForm, setShowForm] = useState(false);
@@ -12,65 +17,79 @@ function AdminProductsPage() {
   const [editingProduct, setEditingProduct] = useState(null);
   const [message, setMessage] = useState("");
 
-useEffect(() => {
-  const loadProducts = async () => {
-    try {
-      const data = await getProducts();
-      setProducts(data);
-    } catch (error) {
-      console.error("Error loading products:", error);
-    }
-  };
-
-  loadProducts();
-}, []);
-
-  const handleCreateProduct = (productData) => {
-    console.log("PRODUCTO RECIBIDO", productData);
-    const newProduct = {
-      ...productData,
-      _id: Date.now(),
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error loading products:", error);
+      }
     };
 
-    setProducts([...products, newProduct]);
-
-    setShowForm(false);
-
-    setMessage("Producto creado correctamente");
-  };
-
-  const handleUpdateProduct = (updatedProduct) => {
-    setProducts(
-      products.map((product) =>
-        product._id === updatedProduct._id ? updatedProduct : product,
-      ),
-    );
-
-    setEditingProduct(null);
-    setShowForm(false);
-
-    setMessage("Producto actualizado correctamente");
-  };
+    loadProducts();
+  }, []);
 
   useEffect(() => {
-    if (!message) {
-      return;
+  if (!message) return;
+
+  const timer = setTimeout(() => {
+    setMessage("");
+  }, 3000);
+
+  return () => clearTimeout(timer);
+}, [message]);
+
+  const handleCreateProduct = async (productData) => {
+    try {
+      const newProduct = await createProduct(productData);
+
+      setProducts([...products, newProduct]);
+
+      setShowForm(false);
+
+      setMessage("Producto creado correctamente");
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    setTimeout(() => {
-      setMessage("");
-    }, 3000);
-  }, [message]);
+  const handleUpdateProduct = async (updatedProduct) => {
+    try {
+      const savedProduct = await updateProduct(
+        updatedProduct._id,
+        updatedProduct,
+      );
 
-  const handleDeleteProduct = (_id) => {
-    const confirmed = window.confirm("Deseas eliminar este producto?");
+      setProducts(
+        products.map((product) =>
+          product._id === savedProduct._id ? savedProduct : product,
+        ),
+      );
+
+      setEditingProduct(null);
+      setShowForm(false);
+
+      setMessage("Producto actualizado correctamente");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleDeleteProduct = async (_id) => {
+    const confirmed = window.confirm("¿Deseas eliminar este producto?");
 
     if (!confirmed) return;
 
-    setProducts(products.filter((product) => product._id !== _id));
-    // console.log("PRODUCTO ELIMINADO", id);
+    try {
+      await deleteProduct(_id);
 
-    setMessage("Producto eliminado correctamente");
+      setProducts(products.filter((product) => product._id !== _id));
+
+      setMessage("Producto eliminado correctamente");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleEditProduct = (product) => {
@@ -122,7 +141,7 @@ useEffect(() => {
       <div className="admin-list">
         {products.map((product) => (
           <article key={product._id} className="admin-list-item">
-            <img src={product.image} alt={product.name} />
+            <img src={product.image || "images/default.jpg"} alt={product.name} />
 
             <div>
               <h3>{product.name}</h3>
