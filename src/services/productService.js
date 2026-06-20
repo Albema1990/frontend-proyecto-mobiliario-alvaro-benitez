@@ -1,30 +1,29 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
+const handleResponse = async (response) => {
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error (data.message || "Error en la petición");
+  };
+  return data;
+}
+
 export const getProducts = async () => {
-    const response = await fetch(API_URL);
+  const response = await fetch(API_URL);
 
-    if (!response.ok) {
-        throw new Error("Error al obtener los productos");
-    }
-
-    const data = await response.json();
-
-    return data;
+  return handleResponse(response);
 };
 
 export const getProductById = async (id) => {
-    const response = await fetch(`${API_URL}/${id}`);
+  const response = await fetch(`${API_URL}/${id}`);
 
-    if (!response.ok) {
-        throw new Error("Error al obtener el producto");
-    }
-
-    const data = await response.json();
-
-    return data;
+  return handleResponse(response);
 };
 
 export const createProduct = async (productData) => {
+
+  
   const response = await fetch(API_URL, {
     method: "POST",
     headers: {
@@ -33,11 +32,7 @@ export const createProduct = async (productData) => {
     body: JSON.stringify(productData),
   });
 
-  if (!response.ok) {
-    throw new Error("Error al crear producto");
-  }
-
-  return await response.json();
+  return handleResponse(response);
 };
 
 export const updateProduct = async (id, productData) => {
@@ -49,11 +44,7 @@ export const updateProduct = async (id, productData) => {
     body: JSON.stringify(productData),
   });
 
-  if (!response.ok) {
-    throw new Error("Error al actualizar producto");
-  }
-
-  return await response.json();
+  return handleResponse(response);
 };
 
 export const deleteProduct = async (id) => {
@@ -61,9 +52,5 @@ export const deleteProduct = async (id) => {
     method: "DELETE",
   });
 
-  if (!response.ok) {
-    throw new Error("Error al eliminar producto");
-  }
-
-  return await response.json();
+  return handleResponse(response);
 };

@@ -1,6 +1,6 @@
 // import initialProducts from "../../data/Products";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ProductForm from "../../components/ProductForm";
 
 import {
@@ -17,6 +17,8 @@ function AdminProductsPage() {
   const [editingProduct, setEditingProduct] = useState(null);
   const [message, setMessage] = useState("");
 
+  const formRef = useRef(null);
+
   useEffect(() => {
     const loadProducts = async () => {
       try {
@@ -31,14 +33,23 @@ function AdminProductsPage() {
   }, []);
 
   useEffect(() => {
-  if (!message) return;
+    if (!message) return;
 
-  const timer = setTimeout(() => {
-    setMessage("");
-  }, 3000);
+    const timer = setTimeout(() => {
+      setMessage("");
+    }, 3000);
 
-  return () => clearTimeout(timer);
-}, [message]);
+    return () => clearTimeout(timer);
+  }, [message]);
+
+  useEffect(() => {
+    if (showForm && formRef.current) {
+      formRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [showForm, editingProduct]);
 
   const handleCreateProduct = async (productData) => {
     try {
@@ -130,18 +141,23 @@ function AdminProductsPage() {
       </div>
 
       {showForm && (
-        <ProductForm
-          key={editingProduct?._id || "new"}
-          product={editingProduct}
-          onCreateProduct={handleCreateProduct}
-          onUpdateProduct={handleUpdateProduct}
-        />
+        <div ref={formRef}>
+          <ProductForm
+            key={editingProduct?._id || "new"}
+            product={editingProduct}
+            onCreateProduct={handleCreateProduct}
+            onUpdateProduct={handleUpdateProduct}
+          />
+        </div>
       )}
 
       <div className="admin-list">
         {products.map((product) => (
           <article key={product._id} className="admin-list-item">
-            <img src={product.image || "images/default.jpg"} alt={product.name} />
+            <img
+              src={product.image || "images/default.jpg"}
+              alt={product.name}
+            />
 
             <div>
               <h3>{product.name}</h3>
