@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Topbar() {
 
   return (
@@ -5,11 +7,11 @@ function Topbar() {
 
       <div className="topbar-content container">
 
-        <a href="#">Ayuda</a>
+        <Link to="/help">Ayuda</Link>
 
-        <a href="#">Únete a nosotros</a>
+        <Link to="/register">Únete a nosotros</Link>
 
-        <a href="#">Iniciar sesión</a>
+        <Link to="/login">Iniciar sesión</Link>
 
       </div>
 
