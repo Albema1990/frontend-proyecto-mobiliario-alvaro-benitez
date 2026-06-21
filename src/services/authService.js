@@ -1,4 +1,13 @@
-const API_URL = "http://localhost:3000/api/auth";
+const API_URL = `${import.meta.env.VITE_API_URL}/auth`;
+
+const handleResponse = async (response) => {
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error (data.message || "Error en la petición");
+  };
+  return data;
+}
 
 export const registerUser = async (userData) => {
   const response = await fetch(`${API_URL}/register`, {
@@ -9,13 +18,7 @@ export const registerUser = async (userData) => {
     body: JSON.stringify(userData),
   });
 
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message);
-  }
-
-  return data;
+  return handleResponse(response);
 };
 
 export const loginUser = async (userData) => {
@@ -27,11 +30,5 @@ export const loginUser = async (userData) => {
     body: JSON.stringify(userData),
   });
 
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message);
-  }
-
-  return data;
+  return handleResponse(response);
 };
