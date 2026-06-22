@@ -12,6 +12,8 @@ import AdminProductsPage from "../pages/admin/AdminProductsPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 
+import ProtectedAdminRoute from "../components/ProtectedAdminRoute";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -45,7 +47,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: (
+      <ProtectedAdminRoute>
+        <AdminLayout />
+      </ProtectedAdminRoute>
+    ),
     children: [
       {
         path: "shop",
