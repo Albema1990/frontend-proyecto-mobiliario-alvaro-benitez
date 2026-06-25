@@ -24,7 +24,6 @@ function FooterTop() {
 
     try {
       const data = await subscribeNewsletter(email);
-      
 
       setSuccess(true);
       setMessage(data.message);
