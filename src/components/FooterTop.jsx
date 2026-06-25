@@ -9,8 +9,6 @@ function FooterTop() {
   const handleSubscribe = async (e) => {
     e.preventDefault();
 
-    console.log("Email:", email);
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email)) {
