@@ -1198,6 +1198,37 @@ body {
   font-size: 0.75rem;
 }
 
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+}
+
+.newsletter-form input:focus {
+  border-color: #6b4f3b;
+}
+
+.newsletter-message {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.newsletter-message.success {
+  color: #2e7d32;
+}
+
+.newsletter-message.error {
+  color: #d32f2f;
+}
+
 /* =========================
    MEDIA QUERIES
 
