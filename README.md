@@ -1,25 +1,57 @@
 # Frontend Catálogo Café
 
-Proyecto final del Bootcamp Neoland Web Development.
+Proyecto final del Bootcamp Full Stack Web Development de NEOLAND.
 
 ## Descripción
 
-Aplicación web para gestionar un catálogo de productos de café.
+Aplicación web desarrollada con React que permite consultar un catálogo de cafés de especialidad y accesorios, buscar productos, filtrarlos por categorías, gestionar un carrito de compra, suscribirse a una newsletter y administrar los productos mediante un panel protegido para administradores.
+
+## Funcionalidades
+
+- Visualización del catálogo de productos.
+- Búsqueda dinámica de productos.
+- Filtro por categorías.
+- Página de detalle de cada producto.
+- Productos relacionados.
+- Carrito de compra.
+- Persistencia del carrito mediante LocalStorage.
+- Registro e inicio de sesión mediante JWT.
+- Panel de administración protegido.
+- CRUD completo de productos.
+- Suscripción a la newsletter.
+- Diseño responsive.
+- Tests con Vitest.
 
 ## Tecnologías
 
 - React
 - Vite
-- CSS
-- JavaScript
-- Vitest
+- JavaScript (ES6+)
+- React Router DOM
+- Context API
+- CSS3
 - Fetch API
-- Testing
+- Vitest
+- JWT Authentication
+
+## Estructura del proyecto
+src/
+├── components
+├── context
+├── hooks
+├── layouts
+├── pages
+├── router
+├── services
+├── tests
+└── assets
 
 ## Clonar el repositorio
 
 ```
 git clone https://github.com/Albema1990/frontend-proyecto-mobiliario-alvaro-benitez.git
+
+cd frontend-proyecto-mobiliario-alvaro-benitez
 
 git switch dev
 ```
@@ -28,8 +60,13 @@ git switch dev
 
 ```shell
 npm install
-npm run dev
 ```
+
+## Variables de entorno
+
+Crear un archivo .env en la raíz del proyecto:
+
+VITE_API_URL=http://localhost:3000/api
 
 ## Ejecutar en desarrollo
 ```
@@ -44,17 +81,6 @@ http://localhost:5173
 ```
 npm test
 ```
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [react()],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.jsx',
-  },
-})
 
 ## Generar build de producción
 ```
@@ -71,17 +97,35 @@ Este proyecto consume una API REST desarrollada con:
 - Express
 - MongoDB Atlas
 - JWT
+- Mongoose
+
+Repositorio Backend:
+
+https://github.com/Albema1990/backend-proyecto-mobiliario-alvaro-benitez
 
 ## Autenticación
 
-La aplicación utiliza JWT.
+La aplicación utiliza autenticación basada en JWT.
 
-Al iniciar sesión se almacena:
-```
-token
-user
-```
-en el localStorage del navegador
+Tras iniciar sesión se almacenan en LocalStorage:
+
+- token
+- user
+
+Estas credenciales permiten acceder a las rutas protegidas del panel de administración.
+
+## Características técnicas
+
+- Arquitectura SPA desarrollada con React.
+- Consumo de API REST mediante Fetch API.
+- Gestión global del carrito utilizando Context API.
+- Persistencia del carrito mediante LocalStorage.
+- Autenticación mediante JWT.
+- Rutas protegidas para administradores.
+- CRUD completo de productos.
+- Newsletter conectada con MongoDB.
+- Diseño responsive para escritorio, tablet y móvil.
+- Tests unitarios realizados con Vitest.
 
 ## Deploy
 
