@@ -14,6 +14,8 @@ import RegisterPage from "../pages/RegisterPage";
 
 import ProtectedAdminRoute from "../components/ProtectedAdminRoute";
 
+import Cart from "../pages/Cart";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -40,48 +42,8 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "*",
-        element: <NotFoundPage />,
-      },
-    ],
-  },
-  {
-    path: "/admin",
-    element: (
-      <ProtectedAdminRoute>
-        <AdminLayout />
-      </ProtectedAdminRoute>
-    ),
-    children: [
-      {
-        path: "shop",
-        element: <AdminProductsPage />,
-      },
-    ],
-  },
-
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-
-      {
-        path: "/shop",
-        element: <Shop />,
-      },
-
-      {
-        path: "/shop/:category",
-        element: <Shop />,
-      },
-
-      {
-        path: "/product/:id",
-        element: <ProductDetail />,
+        path: "/cart",
+        element: <Cart />,
       },
 
       {
@@ -97,6 +59,21 @@ export const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFoundPage />,
+      },
+    ],
+  },
+
+  {
+    path: "/admin",
+    element: (
+      <ProtectedAdminRoute>
+        <AdminLayout />
+      </ProtectedAdminRoute>
+    ),
+    children: [
+      {
+        path: "shop",
+        element: <AdminProductsPage />,
       },
     ],
   },

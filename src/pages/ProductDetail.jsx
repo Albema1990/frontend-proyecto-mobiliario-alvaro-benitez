@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../services/productService";
 import { getProductById } from "../services/productService";
 
+import { useCart } from "../hooks/useCart";
+
 function ProductDetail() {
   const { id } = useParams();
 
@@ -12,6 +14,8 @@ function ProductDetail() {
   const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const { addToCart } = useCart();
 
   // const product = products.find((product) => product.id === Number(id));
 
@@ -48,8 +52,7 @@ function ProductDetail() {
     ? allProducts
         .filter(
           (item) =>
-            item.category === product.category &&
-            item._id !== product._id,
+            item.category === product.category && item._id !== product._id,
         )
         .slice(0, 6)
     : [];
@@ -86,7 +89,9 @@ function ProductDetail() {
               </p>
             </div>
 
-            <button className="buy-btn">Añadir al carrito</button>
+            <button className="buy-btn" onClick={() => addToCart(product)}>
+              Añadir al carrito
+            </button>
           </div>
         </div>
       </div>

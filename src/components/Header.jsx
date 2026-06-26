@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 // import products from "../data/products";
 import { getProducts } from "../services/productService";
+import { useCart } from "../hooks/useCart";
 
 import {
   HiOutlineShoppingBag,
@@ -17,18 +18,22 @@ function Header() {
 
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-  const loadProducts = async () => {
-    try {
-      const data = await getProducts();
-      setProducts(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const { cart } = useCart();
 
-  loadProducts();
-}, []);
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    loadProducts();
+  }, []);
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
@@ -75,7 +80,10 @@ function Header() {
                       setSearch("");
                     }}
                   >
-                    <img src={product.image || "images/default.jpg"} alt={product.name} />
+                    <img
+                      src={product.image || "images/default.jpg"}
+                      alt={product.name}
+                    />
 
                     <span>{product.name}</span>
                   </div>
@@ -84,8 +92,10 @@ function Header() {
             )}
           </div>
 
-          <button className="icon-btn">
+          <button className="icon-btn" onClick={() => navigate("/cart")}>
             <HiOutlineShoppingBag />
+
+            {totalItems > 0 && <span className="cart-count">{totalItems}</span>}
           </button>
 
           <button
